@@ -1,8 +1,9 @@
 import {html} from '../../node_modules/lit-html/lit-html.js';
+import {register} from '../api/data.js';
 
-const registerTemplate = html`
+const registerTemplate =(onSubmit) => html`
     <section id="register">
-        <form id="register-form">
+        <form @submit=${onSubmit} id="register-form">
             <div class="container">
                 <h1>Register</h1>
                 <label for="username">Username</label>
@@ -28,6 +29,31 @@ const registerTemplate = html`
     </section>
 `;
 
-export async function register(context) {
-    context.render(registerTemplate);
+export async function registerPage(context) {
+    context.render(registerTemplate(onSubmit));
+
+    async function onSubmit(ev) {
+        ev.preventDefault();
+        const formData = new FormData(ev.target);
+        const username = formData.get('username');
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const repeatPass = formData.get('repeatPass');
+        const gender = formData.get('gender');
+
+      try {
+          if (!username || !email || !password || !repeatPass || !gender){
+              throw new Error('All fields are required!');
+          }
+          if(password !== repeatPass){
+              throw new Error('Passwords don\'t match');
+          }
+
+          await register(username,email,password,gender);
+          context.setUserNav();
+          context.page.redirect('/catalog');
+      }catch (e) {
+          notify(e.message);
+      }
+    }
 }

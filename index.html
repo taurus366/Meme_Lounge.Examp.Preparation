@@ -20,10 +20,10 @@
 
         <!-- Navigation -->
         <nav>
-            <a href="#">All Memes</a>
+            <a href="/catalog">All Memes</a>
              <!-- Logged users -->
             <div class="user">
-                <a href="#">Create Meme</a>
+                <a href="/create">Create Meme</a>
                 <div class="profile">
                     <span>Welcome, {email}</span>
                     <a href="/profile">My Profile</a>
@@ -102,69 +102,7 @@
         </section>
 
         <!-- All Memes Page ( for Guests and Users )-->
-        <section id="meme-feed">
-            <h1>All Memes</h1>
-            <div id="memes">
-				<!-- Display : All memes in database ( If any ) -->
-                <div class="meme">
-                    <div class="card">
-                        <div class="info">
-                            <p class="meme-title">Debugging</p>
-                            <img class="meme-image" alt="meme-img" src="/images/2.png">
-                        </div>
-                        <div id="data-buttons">
-                            <a class="button" href="#">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="meme">
-                    <div class="card">
-                        <div class="info">
-                            <p class="meme-title">Java Script</p>
-                            <img class="meme-image" alt="meme-img" src="/images/4.png">
-                        </div>
-                        <div id="data-buttons">
-                            <a class="button" href="#">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="meme">
-                    <div class="card">
-                        <div class="info">
-                            <p class="meme-title">Yes, arrays are objects</p>
-                            <img class="meme-image" alt="meme-img" src="/images/6.png">
-                        </div>
-                        <div id="data-buttons">
-                            <a class="button" href="#">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="meme">
-                    <div class="card">
-                        <div class="info">
-                            <p class="meme-title">Java Script joke</p>
-                            <img class="meme-image" alt="meme-img" src="/images/1.png">
-                        </div>
-                        <div id="data-buttons">
-                            <a class="button" href="#">Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="meme">
-                    <div class="card">
-                        <div class="info">
-                            <p class="meme-title">Bad code can present some problems</p>
-                            <img class="meme-image" alt="meme-img" src="/images/3.png">
-                        </div>
-                        <div id="data-buttons">
-                            <a class="button" href="#">Details</a>
-                        </div>
-                    </div>
-                </div>
-				<!-- Display : If there are no memes in database -->
-				<p class="no-memes">No memes in database.</p>
-			</div>
-        </section>
+
 
         <!-- Create Meme Page ( Only for logged users ) -->
         <section id="create-meme">
@@ -231,33 +169,7 @@
         </section>
 
         <!-- Profile Page ( Only for logged users ) -->
-        <section id="user-profile-page" class="user-profile">
-            <article class="user-info">
-                <img id="user-avatar-url" alt="user-profile" src="/images/female.png">
-                <div class="user-content">
-                    <p>Username: Mary</p>
-                    <p>Email: mary@abv.bg</p>
-                    <p>My memes count: 2</p>
-                </div>
-            </article>
-            <h1 id="user-listings-title">User Memes</h1>
-            <div class="user-meme-listings">
-                <!-- Display : All created memes by this user (If any) --> 
-                <div class="user-meme">
-                    <p class="user-meme-title">Java Script joke</p>
-                    <img class="userProfileImage" alt="meme-img" src="/images/1.png">
-                    <a class="button" href="#">Details</a>
-                </div>
-                <div class="user-meme">
-                    <p class="user-meme-title">Bad code can present some problems</p>
-                    <img class="userProfileImage" alt="meme-img" src="/images/3.png">
-                    <a class="button" href="#">Details</a>
-                </div>
 
-                <!-- Display : If user doesn't have own memes  --> 
-                <p class="no-memes">No memes in database.</p>
-            </div>
-        </section>
         </div>
         <!-- Footer  -->
         <footer class="footer">

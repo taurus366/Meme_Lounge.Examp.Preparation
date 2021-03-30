@@ -1,8 +1,9 @@
 import {html} from '../../node_modules/lit-html/lit-html.js';
+import {createMeme} from '../api/data.js';
 
-const memeTemplate = html`
+const memeTemplate = (onSubmit) => html`
     <section id="create-meme">
-        <form id="create-form">
+        <form @submit=${onSubmit} id="create-form">
             <div class="container">
                 <h1>Create Meme</h1>
                 <label for="title">Title</label>
@@ -17,6 +18,32 @@ const memeTemplate = html`
     </section>
 `;
 
-export async function meme(context) {
-    context.render(memeTemplate);
+export async function createMemePage(context) {
+    context.render(memeTemplate(onSubmit));
+
+   async function onSubmit(ev) {
+       ev.preventDefault();
+
+       const formData = new FormData(ev.target);
+       const title = formData.get('title');
+       const description = formData.get('description');
+       const imageUrl = formData.get('imageUrl');
+
+      try {
+          if (!title || !description || !imageUrl){
+              throw new Error('All fields are required');
+          }
+          await createMeme({
+              title,
+              description,
+              imageUrl
+          });
+          context.page.redirect('/catalog');
+      }catch (e) {
+        window.notify(e.message);
+      }
+
+
+
+    }
 }

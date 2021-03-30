@@ -15,5 +15,9 @@ const homeTemplate = () => html`
 `;
 
 export async function homePage(context) {
+    const token = sessionStorage.getItem('authToken');
+    if (token !== null){
+        return context.page.redirect('/catalog');
+    }
     context.render(homeTemplate());
 }
